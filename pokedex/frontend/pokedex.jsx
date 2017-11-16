@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import configureStore from './store/store'
+import configureStore from './store/store';
+import Root from './components/root'
 
 // TODO: REMOVE -- FOR TESTING ONLY
-import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions'
-import { fetchAllPokemon } from './util/api_util'
+import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
+import { fetchAllPokemon } from './util/api_util';
+import { selectAllPokemon } from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#root');
+  const rootEl = document.querySelector('#root');
   const store = configureStore();
-  ReactDOM.render(<h1>hi</h1>, root);
+  ReactDOM.render(<Root store={store} />, rootEl);
 
 
 
@@ -17,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.receiveAllPokemon = receiveAllPokemon;
   window.fetchAllPokemon = fetchAllPokemon;
   window.requestAllPokemon = requestAllPokemon;
+  window.selectAllPokemon = selectAllPokemon;
 
   window.store = store;
   window.getState = store.getState;
