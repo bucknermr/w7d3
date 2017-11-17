@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
-import Root from './components/root'
+import Root from './components/root';
+import { HashRouter, Route } from 'react-router-dom';
 
 // TODO: REMOVE -- FOR TESTING ONLY
 import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
